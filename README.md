@@ -1,8 +1,8 @@
 # wallpaper
 A collection of the best wallpapers 🔅
 
-<img src="./Desktop-1148.jpg" width="auto">
-<img src="./Desktop-1119.png" width="auto">
+<img src="./Desktop-1151.jpg" width="auto">
+<img src="./Desktop-1160.jpg" width="auto">
 <img src="./Desktop-1171.jpg" width="auto">
 <img src="./Desktop-1175.png" width="auto">
 <img src="./Desktop-1179.png" width="auto">
