@@ -15,7 +15,7 @@
         <img src="./wallpapers/Desktop-1231.jpg" width="auto"><br>
         <img src="./wallpapers/Desktop-1241.jpg" width="auto"><br>
         <img src="./wallpapers/Desktop-1295.jpg" width="auto"><br>
-        <p align="left"><a href="https://github.com/mobinjavari/wallpapers/tree/main/wallpapers">more wallpapers (175) ...</a></p>
+        <p align="left"><a href="https://github.com/mobinjavari/wallpapers/tree/main/wallpapers">more wallpapers ...</a></p>
     </details><br><br>
     <img src="https://img.shields.io/github/stars/mobinjavari/wallpapers?color=4C8EDA&labelColor=252932">
     <img src="https://img.shields.io/github/repo-size/mobinjavari/wallpapers?color=4C8EDA&labelColor=252932">
