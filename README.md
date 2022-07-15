@@ -15,5 +15,5 @@
     <img src="./wallpapers/Desktop-1231.jpg" width="auto">
     <img src="./wallpapers/Desktop-1241.jpg" width="auto">
     <img src="./wallpapers/Desktop-1295.jpg" width="auto">
-    <p align="left"><a href="https://github.com/mobinjavari/wallpapers/wallpapers">more wallpapers (175) ...</a></p>
+    <p align="left"><a href="https://github.com/mobinjavari/wallpapers/tree/main/wallpapers">more wallpapers (175) ...</a></p>
 </div><br>
