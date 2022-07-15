@@ -1,6 +1,7 @@
 <div align="center">
     <h1><a href="https://github.com/mobinjavari/Wallpapers">Wallpaper</a></h1>
-    <p>A collection of the best wallpapers 🌠</p><br>
+    <p>A collection of the best wallpapers 🌠</p>
+    <p><sup>Anthology of my lovely pictures (do not credit me, I'm not their owner) ❗</sup></p><br>
     <details>
         <summary>Toggle Preaview</summary><br>
         <img src="./wallpapers/Desktop-1151.jpg" width="auto"><br>
