@@ -1,5 +1,5 @@
 <div align="center">
-    <h1><a href="https://github.com/mobinjavari/Wallpapers">Wallpapers</a></h1>
+    <h1><a href="https://github.com/mobinjavari/Wallpapers">wallpapers</a></h1>
     <p>A collection of the best wallpapers 🌠</p>
     <p><sup>Anthology of my lovely pictures (do not credit me, I'm not their owner) ❗</sup></p><br>
     <details>
