@@ -1,9 +1,9 @@
 <div align="center">
     <a href="https://github.com/mobinjavari/Wallpapers"><img src="./wallpapers.png" alt="best wallpapers"></a><br><br>
-    <p>A collection of the best wallpapers 🌠</p>
-    <p><sup>Anthology of my lovely pictures (do not credit me, I'm not their owner) ❗</sup></p><br>
+    <h3>A collection of the best wallpapers 🌠</h3>
+    <p>Anthology of my lovely pictures (do not credit me, I'm not their owner) ❗</p>
     <details>
-        <summary>Toggle Preview</summary><br>
+        <summary>Preview some best wallpapers</summary><br><br>
         <table>
             <tr>
                 <th>Preview</th>
@@ -22,6 +22,9 @@
                     <img src="./wallpapers/Desktop-1241.jpg" width="auto">
                     <img src="./wallpapers/Desktop-1295.jpg" width="auto">
                 </td>
+            </tr>
+            <tr>
+                <th><a href="https://github.com/mobinjavari/best-wallpapers/tree/main/wallpapers"> more ..</a></th>
             </tr>
         </table>
     </details><br><br>
