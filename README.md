@@ -10,17 +10,12 @@
             </tr>
             <tr>
                 <td>
-                    <img src="./wallpapers/Desktop-1151.jpg" width="auto">
-                    <img src="./wallpapers/Desktop-1160.jpg" width="auto">
-                    <img src="./wallpapers/Desktop-1175.png" width="auto">
-                    <img src="./wallpapers/Desktop-1179.png" width="auto">
-                    <img src="./wallpapers/Desktop-1272.jpg" width="auto">
-                    <img src="./wallpapers/Desktop-13110.png" width="auto">
-                    <img src="./wallpapers/Desktop-1291.jpg" width="auto">
-                    <img src="./wallpapers/Desktop-13119.png" width="auto">
-                    <img src="./wallpapers/Desktop-1231.jpg" width="auto">
-                    <img src="./wallpapers/Desktop-1241.jpg" width="auto">
-                    <img src="./wallpapers/Desktop-1295.jpg" width="auto">
+                    <img src="./wallpapers/vector/Desktop-12892.jpg" width="auto">
+                    <img src="./wallpapers/fun/Desktop-1154.jpg" width="auto">
+                    <img src="./wallpapers/hacking/Desktop-2360.jpg" width="auto">
+                    <img src="./wallpapers/linux/Desktop-1128.jpg" width="auto">
+                    <img src="./wallpapers/mac/Desktop-1175.png" width="auto">
+                    <img src="./wallpapers/nature/Desktop-1246.jpg" width="auto">
                 </td>
             </tr>
             <tr>
