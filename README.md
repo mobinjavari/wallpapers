@@ -12,10 +12,10 @@
                 <td>
                     <img src="./wallpapers/vector/Desktop-12892.jpg" width="auto">
                     <img src="./wallpapers/fun/Desktop-1154.jpg" width="auto">
-                    <img src="./wallpapers/hacking/Desktop-2360.jpg" width="auto">
                     <img src="./wallpapers/linux/Desktop-1128.jpg" width="auto">
                     <img src="./wallpapers/mac/Desktop-1175.png" width="auto">
                     <img src="./wallpapers/nature/Desktop-1246.jpg" width="auto">
+                    <img src="./wallpapers/hacking/Desktop-2360.jpg" width="auto">
                 </td>
             </tr>
             <tr>
