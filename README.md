@@ -1,6 +1,8 @@
 <div align="center">
-    <a href="https://github.com/mobinjavari/Wallpapers"><img src="./wallpapers.png" alt="best wallpapers"></a><br><br>
-    <h3>A collection of the best wallpapers 🌠</h3>
+    <a href="//github.com/mobinjavari/wallpapers">
+        <img src="./wallpapers.png" alt="best wallpapers">
+    </a>
+    <h3>A collection of the best wallpapers  🌟</h3>
     <p>Anthology of my lovely pictures (do not credit me, I'm not their owner) ❗</p>
     <details>
         <summary>Preview some best wallpapers</summary><br><br>
@@ -19,10 +21,11 @@
                 </td>
             </tr>
             <tr>
-                <th><a href="https://github.com/mobinjavari/best-wallpapers/tree/main/wallpapers"> more ..</a></th>
+                <th><a href="./wallpapers"> More...</a></th>
             </tr>
         </table>
-    </details><br><br>
-    <img src="https://img.shields.io/github/stars/mobinjavari/wallpapers?color=4C8EDA&labelColor=252932">
-    <img src="https://img.shields.io/github/repo-size/mobinjavari/wallpapers?color=4C8EDA&labelColor=252932">
-</div><br>
+    </details><br>
+    <a href="//github.com/mobinjavari/wallpapers">
+        <img src="https://img.shields.io/github/repo-size/mobinjavari/wallpapers?color=4C8EDA&labelColor=252932">
+    </a>
+</div>
