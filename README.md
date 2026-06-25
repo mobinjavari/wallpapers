@@ -1,31 +1,51 @@
-<div align="center">
-    <a href="//github.com/mobinjavari/wallpapers">
-        <img src="./wallpapers.png" alt="best wallpapers">
-    </a>
-    <h3>A collection of the best wallpapers  🌟</h3>
-    <p>Anthology of my lovely pictures (do not credit me, I'm not their owner) ❗</p>
-    <details>
-        <summary>Preview some best wallpapers</summary><br><br>
-        <table>
-            <tr>
-                <th>Preview</th>
-            </tr>
-            <tr>
-                <td>
-                    <img src="./wallpapers/vector/Desktop-12892.jpg" width="auto">
-                    <img src="./wallpapers/fun/Desktop-1154.jpg" width="auto">
-                    <img src="./wallpapers/linux/Desktop-1128.jpg" width="auto">
-                    <img src="./wallpapers/mac/Desktop-1175.png" width="auto">
-                    <img src="./wallpapers/nature/Desktop-1246.jpg" width="auto">
-                    <img src="./wallpapers/hacking/Desktop-2360.jpg" width="auto">
-                </td>
-            </tr>
-            <tr>
-                <th><a href="./wallpapers"> More...</a></th>
-            </tr>
-        </table>
-    </details><br>
-    <a href="//github.com/mobinjavari/wallpapers">
-        <img src="https://img.shields.io/github/repo-size/mobinjavari/wallpapers?color=4C8EDA&labelColor=252932">
-    </a>
-</div>
+# A Collection of the Best Wallpapers
+An organized anthology of beautiful, high-quality backgrounds for your desktop.
+
+[![Repo Size](https://img.shields.io/github/repo-size/mobinjavari/wallpapers?color=4C8EDA&labelColor=252932&label=Repo%20Size&style=flat)](https://github.com/mobinjavari/wallpapers) 
+[![Stars](https://img.shields.io/github/stars/mobinjavari/wallpapers?color=F4B400&labelColor=252932&label=Star's&style=flat)](https://github.com/mobinjavari/wallpapers/stargazers)
+
+## Gallery Preview
+
+<details>
+    <summary><b>Click to expand and view featured wallpapers</b></summary>
+    <br>
+    <table align="center">
+        <tr>
+            <td align="center"><img src="./wallpapers/anime/wp9.jpg" width="250px"><br><sub><b>Anime</b></sub></td>
+            <td align="center"><img src="./wallpapers/fun/wp4.jpg" width="250px"><br><sub><b>Fun</b></sub></td>
+        </tr>
+        <tr>
+            <td align="center"><img src="./wallpapers/hacking/wp33.jpg" width="250px"><br><sub><b>Hacking</b></sub></td>
+            <td align="center"><img src="./wallpapers/nature/wp92.jpg" width="250px"><br><sub><b>Nature</b></sub></td>
+        </tr>
+        <tr>
+            <td align="center"><img src="./wallpapers/space/wp90.jpg" width="250px"><br><sub><b>Space</b></sub></td>
+            <td align="center"><img src="./wallpapers/vector/wp98.jpg" width="250px"><br><sub><b>Vector</b></sub></td>
+        </tr>
+    </table>
+    <p align="center"><a href="./wallpapers"><b>Browse the full collection here</b></a></p>
+</details>
+
+## Automation Scripts
+
+<details>
+    <summary><b>Click to view core management tools</b></summary>
+    <br>
+    <table align="center">
+        <tr>
+            <th>Script</th>
+            <th>Description</th>
+            <th>Execution Command</th>
+        </tr>
+        <tr>
+            <td><b>macOS.py</b></td>
+            <td>Downloads latest official Apple wallpapers, extracts images.</td>
+            <td><code>python3 scripts/macOS.py</code></td>
+        </tr>
+        <tr>
+            <td><b>sort.py</b></td>
+            <td>Recursively renames files into a clean sequence (e.g., <code>wp1.jpg</code>) without resetting the counter.</td>
+            <td><code>python3 scripts/sort.py</code></td>
+        </tr>
+    </table>
+</details>
