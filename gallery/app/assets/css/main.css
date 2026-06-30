@@ -1,0 +1,353 @@
+@import "tailwindcss";
+
+@custom-variant dark {
+  @media (prefers-color-scheme: dark) {
+    html:not(.light) & {
+      @slot;
+    }
+  }
+
+  &:where(.dark, .dark *) {
+    @slot;
+  }
+}
+
+/* Default color-scheme (overridden by JS in theme store) */
+:root {
+  color-scheme: light dark;
+}
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+
+  /* ── Surface ── */
+  --color-surface: #f8fafc;
+  --color-surface-raised: #ffffff;
+  --color-surface-muted: #f1f5f9;
+  --color-surface-hover: #e2e8f0;
+  --color-surface-media: #f1f5f9;
+  --color-surface-card: #e2e8f0;
+
+  /* ── Foreground ── */
+  --color-fg: #0f172a;
+  --color-fg-soft: #475569;
+  --color-fg-muted: #64748b;
+  --color-fg-faint: #94a3b8;
+  --color-fg-strong: #334155;
+
+  /* ── Stroke ── */
+  --color-stroke: rgba(226, 232, 240, 0.70);
+  --color-stroke-faint: #f1f5f9;
+
+  /* ── Accent (violet) ── */
+  --color-accent: #7c3aed;
+  --color-accent-hi: #8b5cf6;
+  --color-accent-surface: #ede9fe;
+  --color-accent-fg: #7c3aed;
+  --color-accent-hover: #ddd6fe;
+
+  /* ── Error ── */
+  --color-error: #f43f5e;
+
+  /* ── Toast (inverted per mode) ── */
+  --color-toast-bg: #0f172a;
+  --color-toast-fg: #ffffff;
+  --color-toast-success: #4ade80;
+}
+
+/* Layer 1: auto dark — system preference, works instantly before JS */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-surface: #08080f;
+    --color-surface-raised: #0f0f1c;
+    --color-surface-muted: rgba(255, 255, 255, 0.05);
+    --color-surface-hover: rgba(255, 255, 255, 0.10);
+    --color-surface-media: #000000;
+    --color-surface-card: rgba(255, 255, 255, 0.04);
+    --color-fg: #f1f5f9;
+    --color-fg-soft: #94a3b8;
+    --color-fg-muted: #64748b;
+    --color-fg-faint: #475569;
+    --color-fg-strong: #cbd5e1;
+    --color-stroke: rgba(255, 255, 255, 0.06);
+    --color-stroke-faint: rgba(255, 255, 255, 0.04);
+    --color-accent-surface: rgba(46, 16, 101, 0.50);
+    --color-accent-fg: #a78bfa;
+    --color-accent-hover: #4c1d95;
+    --color-error: #fb7185;
+    --color-toast-bg: #ffffff;
+    --color-toast-fg: #0f172a;
+    --color-toast-success: #16a34a;
+  }
+}
+
+/* Layer 2: explicit dark class (html.dark set by JS, also layout div .dark) */
+.dark {
+  --color-surface: #08080f;
+  --color-surface-raised: #0f0f1c;
+  --color-surface-muted: rgba(255, 255, 255, 0.05);
+  --color-surface-hover: rgba(255, 255, 255, 0.10);
+  --color-surface-media: #000000;
+  --color-surface-card: rgba(255, 255, 255, 0.04);
+  --color-fg: #f1f5f9;
+  --color-fg-soft: #94a3b8;
+  --color-fg-muted: #64748b;
+  --color-fg-faint: #475569;
+  --color-fg-strong: #cbd5e1;
+  --color-stroke: rgba(255, 255, 255, 0.06);
+  --color-stroke-faint: rgba(255, 255, 255, 0.04);
+  --color-accent-surface: rgba(46, 16, 101, 0.50);
+  --color-accent-fg: #a78bfa;
+  --color-accent-hover: #4c1d95;
+  --color-error: #fb7185;
+  --color-toast-bg: #ffffff;
+  --color-toast-fg: #0f172a;
+  --color-toast-success: #16a34a;
+}
+
+/* Layer 3: explicit light override — beats system dark media query */
+html.light {
+  --color-surface: #f8fafc;
+  --color-surface-raised: #ffffff;
+  --color-surface-muted: #f1f5f9;
+  --color-surface-hover: #e2e8f0;
+  --color-surface-media: #f1f5f9;
+  --color-surface-card: #e2e8f0;
+  --color-fg: #0f172a;
+  --color-fg-soft: #475569;
+  --color-fg-muted: #64748b;
+  --color-fg-faint: #94a3b8;
+  --color-fg-strong: #334155;
+  --color-stroke: rgba(226, 232, 240, 0.70);
+  --color-stroke-faint: #f1f5f9;
+  --color-accent-surface: #ede9fe;
+  --color-accent-fg: #7c3aed;
+  --color-accent-hover: #ddd6fe;
+  --color-error: #f43f5e;
+  --color-toast-bg: #0f172a;
+  --color-toast-fg: #ffffff;
+  --color-toast-success: #4ade80;
+}
+
+/* ── Pre-opacified surface utilities ── */
+.bg-header {
+  background-color: rgba(255, 255, 255, 0.80);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.light) .bg-header {
+    background-color: rgba(8, 8, 15, 0.90);
+  }
+}
+
+.dark .bg-header {
+  background-color: rgba(8, 8, 15, 0.90);
+}
+
+html.light .bg-header {
+  background-color: rgba(255, 255, 255, 0.80);
+}
+
+.bg-float {
+  background-color: rgba(255, 255, 255, 0.80);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.light) .bg-float {
+    background-color: rgba(15, 15, 28, 0.80);
+  }
+}
+
+.dark .bg-float {
+  background-color: rgba(15, 15, 28, 0.80);
+}
+
+html.light .bg-float {
+  background-color: rgba(255, 255, 255, 0.80);
+}
+
+.bg-backdrop {
+  background-color: rgba(0, 0, 0, 0.50);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.light) .bg-backdrop {
+    background-color: rgba(0, 0, 0, 0.70);
+  }
+}
+
+.dark .bg-backdrop {
+  background-color: rgba(0, 0, 0, 0.70);
+}
+
+html.light .bg-backdrop {
+  background-color: rgba(0, 0, 0, 0.50);
+}
+
+/* ── Background dot-grid pattern ── */
+.bg-pattern {
+  background-image: radial-gradient(circle, rgba(100, 116, 139, 0.18) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.light) .bg-pattern {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px);
+  }
+}
+
+.dark .bg-pattern {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px);
+}
+
+html.light .bg-pattern {
+  background-image: radial-gradient(circle, rgba(100, 116, 139, 0.18) 1.5px, transparent 1.5px);
+}
+
+/* ── Safe-area inset utilities ── */
+@layer utilities {
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .pl-safe {
+    padding-left: env(safe-area-inset-left, 0px);
+  }
+
+  .pr-safe {
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+
+  .bottom-safe-6 {
+    bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .right-safe-6 {
+    right: calc(1.5rem + env(safe-area-inset-right, 0px));
+  }
+}
+
+/* ── Base ── */
+*,
+*::before,
+*::after {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/* Skeleton pulse */
+@keyframes skeletonPulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.animate-skeleton {
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 99px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ── Button press feedback ── */
+.btn-press:active {
+  transform: scale(0.88);
+}
+
+/* ── Focus outline ── */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #7c3aed;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ── Theme icon spin-in animation ── */
+@keyframes themeSpinIn {
+  from {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.6);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.theme-spin {
+  animation: themeSpinIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* ── Toast enter/exit keyframes ── */
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toastOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+}
+
+.toast-in {
+  animation: toastIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.toast-out {
+  animation: toastOut 0.3s ease forwards;
+}
