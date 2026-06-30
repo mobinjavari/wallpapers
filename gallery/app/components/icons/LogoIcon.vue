@@ -1,0 +1,28 @@
+<template>
+  <svg viewBox="148 118 504 564">
+    <defs>
+      <linearGradient id="main-gradient" x1="0.1" y1="0" x2="0.9" y2="1">
+        <stop offset="0%" stop-color="#cda8ff" />
+        <stop offset="30%" stop-color="#8e51ff" />
+        <stop offset="70%" stop-color="#551bbb" />
+        <stop offset="100%" stop-color="#1b0047" />
+      </linearGradient>
+      <linearGradient id="inner-cut-grad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#0c071a" stop-opacity="0.7" />
+        <stop offset="100%" stop-color="#160e2e" stop-opacity="0.45" />
+      </linearGradient>
+      <linearGradient id="edge-highlight" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.65" />
+        <stop offset="100%" stop-color="#8e51ff" stop-opacity="0.4" />
+      </linearGradient>
+    </defs>
+    <g>
+      <path
+        d="M400 120 C500 120 650 250 650 400 C650 550 500 680 400 680 C300 680 150 550 150 400 C150 250 300 120 400 120 Z"
+        fill="url(#main-gradient)" stroke="url(#edge-highlight)" stroke-width="3" />
+      <path
+        d="M400 240 C470 240 560 320 560 400 C560 480 470 560 400 560 C330 560 240 480 240 400 C240 320 330 240 400 240 Z"
+        fill="url(#inner-cut-grad)" />
+    </g>
+  </svg>
+</template>
