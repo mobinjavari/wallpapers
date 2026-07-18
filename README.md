@@ -1,7 +1,8 @@
 # A Collection of the Best Wallpapers
+
 An organized anthology of beautiful, high-quality backgrounds for your desktop.
 
-[![Repo Size](https://img.shields.io/github/repo-size/mobinjavari/wallpapers?color=4C8EDA&labelColor=252932&label=Repo%20Size&style=flat)](https://github.com/mobinjavari/wallpapers) 
+[![Repo Size](https://img.shields.io/github/repo-size/mobinjavari/wallpapers?color=4C8EDA&labelColor=252932&label=Repo%20Size&style=flat)](https://github.com/mobinjavari/wallpapers)
 [![Stars](https://img.shields.io/github/stars/mobinjavari/wallpapers?color=F4B400&labelColor=252932&label=Star's&style=flat)](https://github.com/mobinjavari/wallpapers/stargazers)
 
 ## Gallery Preview
@@ -11,16 +12,16 @@ An organized anthology of beautiful, high-quality backgrounds for your desktop.
     <br>
     <table align="center">
         <tr>
-            <td align="center"><img src="./wallpapers/anime/wp9.jpg" width="250px"><br><sub><b>Anime</b></sub></td>
-            <td align="center"><img src="./wallpapers/fun/wp4.jpg" width="250px"><br><sub><b>Fun</b></sub></td>
+            <td align="center"><img src="./wallpapers/anime/anime-girl-cyberpunk-bedroom.jpg" width="250px"><br><sub><b>Anime</b></sub></td>
+            <td align="center"><img src="./wallpapers/fun/trollface-monocle-computer.jpg" width="250px"><br><sub><b>Fun</b></sub></td>
         </tr>
         <tr>
-            <td align="center"><img src="./wallpapers/hacking/wp33.jpg" width="250px"><br><sub><b>Hacking</b></sub></td>
-            <td align="center"><img src="./wallpapers/nature/wp92.jpg" width="250px"><br><sub><b>Nature</b></sub></td>
+            <td align="center"><img src="./wallpapers/hacking/bitcoin-crypto-hacker-monk.jpg" width="250px"><br><sub><b>Hacking</b></sub></td>
+            <td align="center"><img src="./wallpapers/nature/fractal-blue-flowers-abstract.jpg" width="250px"><br><sub><b>Nature</b></sub></td>
         </tr>
         <tr>
-            <td align="center"><img src="./wallpapers/space/wp90.jpg" width="250px"><br><sub><b>Space</b></sub></td>
-            <td align="center"><img src="./wallpapers/vector/wp98.jpg" width="250px"><br><sub><b>Vector</b></sub></td>
+            <td align="center"><img src="./wallpapers/space/astronaut-sleeping-in-flowers.jpg" width="250px"><br><sub><b>Space</b></sub></td>
+            <td align="center"><img src="./wallpapers/vector/colorful-graffiti-pop-art.jpg" width="250px"><br><sub><b>Vector</b></sub></td>
         </tr>
     </table>
     <p align="center"><a href="./wallpapers"><b>Browse the full collection here</b></a></p>
