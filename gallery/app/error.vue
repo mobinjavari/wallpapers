@@ -30,7 +30,10 @@ function handleError() {
           <IconsBrokenFrameIcon />
         </div>
 
-        <h1 class="nf-404 font-black leading-none select-none" :aria-label="String(error.statusCode)">
+        <h1
+          class="nf-404 font-black leading-none select-none"
+          :aria-label="String(error.statusCode)"
+        >
           {{ error.statusCode }}
         </h1>
 
@@ -47,13 +50,17 @@ function handleError() {
 
         <button
           class="mt-8 inline-flex items-center gap-2 h-10 px-6 rounded-2xl bg-accent hover:bg-accent-hi text-white text-sm font-semibold transition-all btn-press shadow-lg shadow-accent/20"
-          @click="handleError">
+          @click="handleError"
+        >
           <IconsChevronLeftIcon class="w-3.5 h-3.5" />
           Browse Gallery
         </button>
       </main>
 
-      <div class="pointer-events-none absolute inset-0 overflow-hidden -z-10" aria-hidden="true">
+      <div
+        class="pointer-events-none absolute inset-0 overflow-hidden -z-10"
+        aria-hidden="true"
+      >
         <div class="nf-glow-orb absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
       </div>
     </div>

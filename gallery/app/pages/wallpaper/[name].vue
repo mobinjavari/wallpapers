@@ -2,6 +2,7 @@
 import type { WallpaperDetail } from '~/types/wallpaper'
 import { SITE_NAME } from '~/utils/seo'
 import { weservUrl } from '~/utils/image'
+import { humanizeWallpaperName } from '~/utils/format'
 
 const route = useRoute()
 const config = useRuntimeConfig()
@@ -20,10 +21,12 @@ const w = result.value.wallpaper
 const requestUrl = useRequestURL()
 const siteUrl = ((config.public.siteUrl as string) || requestUrl.origin).replace(/\/$/, '')
 
+const displayName = computed(() => humanizeWallpaperName(w.name))
+
 const description = [
-  `Download ${w.name}`,
+  `Download ${displayName.value}`,
   w.ext !== 'img' ? `(${w.ext.toUpperCase()})` : '',
-  w.hashtags.length > 0 ? `· ${w.hashtags.map((t) => `#${t}`).join(' ')}` : '',
+  w.hashtags.length > 0 ? `· ${w.hashtags.map(t => `#${t}`).join(' ')}` : '',
   '— free high-resolution wallpaper.',
 ]
   .filter(Boolean)
@@ -34,7 +37,7 @@ const ogImage = w.rawUrl
   : `${siteUrl}/share.png`
 
 useSeoMeta({
-  title: `${w.name} — ${SITE_NAME}`,
+  title: `${displayName.value} — ${SITE_NAME}`,
   description,
   ogType: 'article',
   ogSiteName: SITE_NAME,
@@ -43,7 +46,7 @@ useSeoMeta({
   ogImageWidth: 1200,
   ogImageHeight: 630,
   twitterCard: 'summary_large_image',
-  twitterTitle: `${w.name} — ${SITE_NAME}`,
+  twitterTitle: `${displayName.value} — ${SITE_NAME}`,
   twitterDescription: description,
   twitterImage: ogImage,
 })

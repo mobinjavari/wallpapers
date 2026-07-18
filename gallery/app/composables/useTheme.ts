@@ -14,10 +14,12 @@ function applyColorScheme(m: ThemeMode) {
   if (m === 'dark') {
     html.classList.add('dark')
     html.classList.remove('light')
-  } else if (m === 'light') {
+  }
+  else if (m === 'light') {
     html.classList.add('light')
     html.classList.remove('dark')
-  } else {
+  }
+  else {
     html.classList.remove('dark', 'light')
   }
   html.style.colorScheme = m === 'auto' ? 'light dark' : m

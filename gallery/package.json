@@ -1,5 +1,5 @@
 {
-  "name": "wallpapers-gallery",
+  "name": "wallpapers",
   "type": "module",
   "private": true,
   "scripts": {
@@ -7,7 +7,9 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "format": "eslint . --fix"
   },
   "dependencies": {
     "nuxt": "^4.4.8",
@@ -15,8 +17,10 @@
     "vue-router": "^5.1.0"
   },
   "devDependencies": {
+    "@nuxt/eslint": "^1.16.0",
     "@tailwindcss/vite": "^4.3.2",
     "@types/node": "^26.0.1",
+    "eslint": "^10.7.0",
     "tailwindcss": "^4.3.2"
   }
 }

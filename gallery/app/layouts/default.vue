@@ -84,7 +84,8 @@ onUnmounted(() => {
   <div :class="{ dark: theme.isDark.value }">
     <div class="bg-pattern bg-surface text-fg transition-colors duration-300 min-h-screen flex flex-col">
       <header
-        class="sticky top-0 z-40 bg-header backdrop-blur-xl border-b border-stroke transition-colors duration-300 pt-safe">
+        class="sticky top-0 z-40 bg-header backdrop-blur-xl border-b border-stroke transition-colors duration-300 pt-safe"
+      >
         <AppHeader />
         <CategoryPills />
       </header>

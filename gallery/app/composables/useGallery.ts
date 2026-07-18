@@ -32,13 +32,13 @@ const categories = computed<Category[]>(() => {
 const filteredItems = computed<WallpaperItem[]>(() => {
   const q = liveSearch.value.trim().toLowerCase()
   return allItems.value.filter((item) => {
-    const matchText =
-      !q ||
-      item.name.toLowerCase().includes(q) ||
-      item.hashtags.some((t) => t.toLowerCase().includes(q))
-    const matchTags =
-      !activeTags.value.length ||
-      activeTags.value.every((at) => item.hashtags.some((t) => t.toLowerCase() === at))
+    const matchText
+      = !q
+        || item.name.toLowerCase().includes(q)
+        || item.hashtags.some(t => t.toLowerCase().includes(q))
+    const matchTags
+      = !activeTags.value.length
+        || activeTags.value.every(at => item.hashtags.some(t => t.toLowerCase() === at))
     return matchText && matchTags
   })
 })
@@ -48,7 +48,6 @@ const hasMore = computed(
 )
 
 export function useGallery() {
-  const router = useRouter()
   const route = useRoute()
   const lightbox = useLightbox()
   const toast = useToast()
@@ -69,9 +68,9 @@ export function useGallery() {
   }
 
   function _findAndOpenLightbox(name: string, fullscreen = false) {
-    const item = allItems.value.find((i) => i.name === name)
+    const item = allItems.value.find(i => i.name === name)
     if (!item) return false
-    const idx = filteredItems.value.findIndex((f) => f.rawUrl === item.rawUrl)
+    const idx = filteredItems.value.findIndex(f => f.rawUrl === item.rawUrl)
     const i = idx >= 0 ? idx : 0
     if (fullscreen) lightbox.openInFullscreen(filteredItems.value, i)
     else lightbox.open(filteredItems.value, i)
@@ -101,15 +100,18 @@ export function useGallery() {
         const found = _findAndOpenLightbox(name)
         if (!found) await navigateTo('/')
         if (q) liveSearch.value = q
-      } else if (routeName === 'tag-tag') {
+      }
+      else if (routeName === 'tag-tag') {
         const t = decodeURIComponent(params.tag ?? '').toLowerCase()
         liveSearch.value = q
         activeTags.value = [t]
         activeCategory.value = t
-      } else if (routeName === 'index' && q) {
+      }
+      else if (routeName === 'index' && q) {
         liveSearch.value = q
       }
-    } catch (err) {
+    }
+    catch (err) {
       console.error('Gallery load error:', err)
       isLoading.value = false
       hasError.value = true
@@ -151,7 +153,8 @@ export function useGallery() {
     if (_pushedWallpaper) {
       _pushedWallpaper = false
       history.back()
-    } else {
+    }
+    else {
       navigateTo('/', { replace: true })
     }
   }
@@ -165,7 +168,8 @@ export function useGallery() {
       if (activeTags.value.length === 1) {
         const base = `/tag/${encodeURIComponent(activeTags.value[0] ?? '')}`
         await navigateTo(q ? `${base}?q=${encodeURIComponent(q)}` : base, { replace: true })
-      } else {
+      }
+      else {
         await navigateTo(q ? `/?q=${encodeURIComponent(q)}` : '/', { replace: true })
       }
     }, 400)
@@ -190,14 +194,15 @@ export function useGallery() {
   }
 
   async function removeTag(tag: string) {
-    activeTags.value = activeTags.value.filter((t) => t !== tag)
+    activeTags.value = activeTags.value.filter(t => t !== tag)
     if (activeCategory.value === tag) activeCategory.value = activeTags.value[0] ?? ''
     if (activeTags.value.length === 0) {
       await navigateTo(
         liveSearch.value ? `/?q=${encodeURIComponent(liveSearch.value)}` : '/',
         { replace: true },
       )
-    } else if (activeTags.value.length === 1) {
+    }
+    else if (activeTags.value.length === 1) {
       const base = `/tag/${encodeURIComponent(activeTags.value[0] ?? '')}`
       await navigateTo(
         liveSearch.value ? `${base}?q=${encodeURIComponent(liveSearch.value)}` : base,
@@ -220,7 +225,7 @@ export function useGallery() {
   async function openLightbox(visibleIndex: number) {
     const item = visibleItems.value[visibleIndex]
     if (!item) return
-    const index = filteredItems.value.findIndex((f) => f.rawUrl === item.rawUrl)
+    const index = filteredItems.value.findIndex(f => f.rawUrl === item.rawUrl)
     _pushedWallpaper = true
     await navigateTo('/wallpaper/' + encodeURIComponent(item.name))
     lightbox.open(filteredItems.value, index >= 0 ? index : visibleIndex)
@@ -233,7 +238,8 @@ export function useGallery() {
         .writeText(url)
         .then(() => toast.show({ msg: 'Link copied!', type: 'ok' }))
         .catch(() => toast.show({ msg: 'Copy failed', type: 'err' }))
-    } else {
+    }
+    else {
       try {
         const el = Object.assign(document.createElement('textarea'), { value: url })
         document.body.appendChild(el)
@@ -241,7 +247,8 @@ export function useGallery() {
         document.execCommand('copy')
         document.body.removeChild(el)
         toast.show({ msg: 'Link copied!', type: 'ok' })
-      } catch {
+      }
+      catch {
         toast.show({ msg: 'Copy failed', type: 'err' })
       }
     }

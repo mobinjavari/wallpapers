@@ -3,7 +3,8 @@ export default defineEventHandler(async (event) => {
     const count = await fetchStarCount()
     setResponseHeader(event, 'Cache-Control', 'public, max-age=300, stale-while-revalidate=60')
     return { count }
-  } catch {
+  }
+  catch {
     return { count: 0 }
   }
 })

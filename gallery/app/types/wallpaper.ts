@@ -5,6 +5,8 @@ export interface WallpaperMeta {
   rawUrl: string
   size: number
   path: string
+  oid: string
+  createdAt: string | null
 }
 
 export interface WallpaperAuthor {

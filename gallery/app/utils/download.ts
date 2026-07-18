@@ -72,7 +72,8 @@ export async function cropAndDownload(
       URL.revokeObjectURL(url)
       showToast('Download started!', 'ok')
     }, 'image/png')
-  } catch (err) {
+  }
+  catch (err) {
     console.error('Download error:', err)
     showToast('Download failed. Try again.', 'err')
   }
