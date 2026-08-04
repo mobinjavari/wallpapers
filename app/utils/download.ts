@@ -60,7 +60,10 @@ export async function cropAndDownload(
       .drawImage(img, (ow - tw) / 2, (oh - th) / 2, tw, th, 0, 0, tw, th)
 
     canvas.toBlob((blob) => {
-      if (!blob) return
+      if (!blob) {
+        showToast('Download failed. Try again.', 'err')
+        return
+      }
       const url = URL.createObjectURL(blob)
       const a = Object.assign(document.createElement('a'), {
         href: url,

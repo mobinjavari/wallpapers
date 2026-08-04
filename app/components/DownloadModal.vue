@@ -46,6 +46,7 @@ watchEffect(() => {
           :class="{ 'opacity-0': !imgLoaded, 'opacity-100': imgLoaded }"
           alt="Preview"
           @load="imgLoaded = true"
+          @error="imgLoaded = true"
         >
         <div class="absolute inset-0 p-0 -m-2 bg-linear-to-t from-surface-raised via-transparent to-transparent" />
       </div>
