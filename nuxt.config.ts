@@ -12,12 +12,12 @@ const CSP_DIRECTIVES = [
   'base-uri \'self\'',
   'object-src \'none\'',
   // 'unsafe-hashes' + hash covers the two inline handlers below (theme script + font-swap onload);
-  // both are static, build-time strings — no 'unsafe-inline' needed. The third hash is Vite's
-  // built-in modulepreload polyfill, which Nuxt injects verbatim into every production page
-  // head — it's static per Vite version, not per-request, so it's safe to hash like the others.
-  // If it ever starts drifting (a new distinct violation on reload/navigation), that means
-  // something IS request-dynamic and needs a different fix (CSP nonces) instead of a hash.
-  'script-src \'self\' \'unsafe-hashes\' \'sha256-id7f2Eqrgp6zVTgAVWHCbx0FQro3zsJq68fSwajWQXU=\' \'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc=\' \'sha256-zVWlRPqUGbz8JSdAgyW8fiAxjb69xSU+Mq5fesxo7R4=\'',
+  // both are static, build-time strings — no 'unsafe-inline' needed. Nuxt's own hydration
+  // bootstrap (`window.__NUXT__.config = ...`) is also an inline <script>, but it embeds a
+  // random `buildId` that's regenerated on every build, so its hash never stays valid across
+  // deploys — that script can't be covered by a static hash, only by a per-request CSP nonce
+  // (not implemented yet), which is why enforcement below is Report-Only rather than blocking.
+  'script-src \'self\' \'unsafe-hashes\' \'sha256-id7f2Eqrgp6zVTgAVWHCbx0FQro3zsJq68fSwajWQXU=\' \'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc=\'',
   // 'unsafe-inline' here (unlike script-src) is a deliberate, standard tradeoff: Vue's runtime
   // sets inline style attributes directly via JS (e.g. v-show toggling `display:none`) with
   // values that vary and can't be pinned to a fixed hash. Inline-style injection is a much
@@ -84,10 +84,10 @@ export default defineNuxtConfig({
       ? {
           '/**': {
             headers: {
-              // TEMPORARY: Report-Only while we diagnose what's actually being blocked in
-              // production — logs violations to the console without enforcing anything, so the
-              // site works while we get the exact culprit. Switch back to 'Content-Security-Policy'
-              // (enforcing) once the console is clean.
+              // Report-Only, not enforcing: Nuxt's inline hydration script can't be pinned to a
+              // static hash (see script-src comment above), so enforcing today would block the
+              // app's own hydration on every fresh deploy. Logs violations to the console without
+              // breaking the site until that script is covered by a CSP nonce instead.
               'Content-Security-Policy-Report-Only': CSP_DIRECTIVES,
               'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
               'X-Frame-Options': 'SAMEORIGIN',
