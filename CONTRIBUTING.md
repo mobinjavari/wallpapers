@@ -8,7 +8,7 @@ npm install
 
 Copy `.env.example` to `.env` and fill in:
 
-- `GITHUB_TOKEN` — optional; without it the app still works, but GitHub API requests are limited to the unauthenticated rate limit of 60 requests/hour.
+- `GITHUB_TOKEN` — required; the wallpaper listing is fetched via GitHub's GraphQL API, which rejects unauthenticated requests. Generate a classic PAT with no scopes (public repo read access only).
 - `PUBLIC_SITE_URL` — the public URL this deployment is served from, used for canonical links and Open Graph/Twitter metadata.
 
 ## Commands
