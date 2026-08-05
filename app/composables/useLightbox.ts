@@ -8,6 +8,7 @@ const imgSrc = ref('')
 const imgAlt = ref('')
 const imgLoading = ref(true)
 const pendingFullscreen = ref(false)
+let _closeCleanupTimer: ReturnType<typeof setTimeout> | null = null
 
 const total = computed(() => items.value.length)
 const canPrev = computed(() => currentIndex.value > 0)
@@ -26,7 +27,18 @@ function loadImage() {
 }
 
 export function useLightbox() {
+  // Reopening before the previous close()'s cleanup timer fires must cancel
+  // it — otherwise it later wipes the freshly opened imgSrc/items out from
+  // under the new session.
+  function cancelCloseCleanup() {
+    if (_closeCleanupTimer) {
+      clearTimeout(_closeCleanupTimer)
+      _closeCleanupTimer = null
+    }
+  }
+
   function open(newItems: WallpaperItem[], index: number) {
+    cancelCloseCleanup()
     items.value = newItems
     currentIndex.value = index
     loadImage()
@@ -35,6 +47,7 @@ export function useLightbox() {
   }
 
   function openInFullscreen(newItems: WallpaperItem[], index: number) {
+    cancelCloseCleanup()
     items.value = newItems
     currentIndex.value = index
     loadImage()
@@ -51,7 +64,9 @@ export function useLightbox() {
     isOpen.value = false
     pendingFullscreen.value = false
     document.body.classList.remove('overflow-hidden')
-    setTimeout(() => {
+    cancelCloseCleanup()
+    _closeCleanupTimer = setTimeout(() => {
+      _closeCleanupTimer = null
       imgSrc.value = ''
       items.value = []
     }, 300)
