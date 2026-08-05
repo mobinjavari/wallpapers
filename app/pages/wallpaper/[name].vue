@@ -2,12 +2,12 @@
 import type { WallpaperDetail } from '~/types/wallpaper'
 import { SITE_NAME } from '~/utils/seo'
 import { weservUrl } from '~/utils/image'
-import { humanizeWallpaperName } from '~/utils/format'
+import { humanizeWallpaperName, safeDecodeURIComponent } from '~/utils/format'
 
 const route = useRoute()
 const config = useRuntimeConfig()
 
-const name = decodeURIComponent(route.params.name as string)
+const name = safeDecodeURIComponent(route.params.name as string)
 
 const { data: result, error } = await useAsyncData(`wallpaper-${name}`, () =>
   $fetch<{ wallpaper: WallpaperDetail }>(`/api/wallpapers/${encodeURIComponent(name)}`),

@@ -1,5 +1,6 @@
 import { ref, computed } from 'vue'
 import type { WallpaperItem, Category } from '~/types/wallpaper'
+import { safeDecodeURIComponent } from '~/utils/format'
 
 const ITEMS_PER_PAGE = 20
 
@@ -96,13 +97,13 @@ export function useGallery() {
       const q = (route.query.q as string) ?? ''
 
       if (routeName === 'wallpaper-name') {
-        const name = decodeURIComponent(params.name ?? '')
+        const name = safeDecodeURIComponent(params.name ?? '')
         const found = _findAndOpenLightbox(name)
         if (!found) await navigateTo('/')
         if (q) liveSearch.value = q
       }
       else if (routeName === 'tag-tag') {
-        const t = decodeURIComponent(params.tag ?? '').toLowerCase()
+        const t = safeDecodeURIComponent(params.tag ?? '').toLowerCase()
         liveSearch.value = q
         activeTags.value = [t]
         activeCategory.value = t
@@ -128,14 +129,14 @@ export function useGallery() {
         break
       case 'tag-tag': {
         if (lightbox.isOpen.value) lightbox.close()
-        const t = decodeURIComponent(params.tag ?? '').toLowerCase()
+        const t = safeDecodeURIComponent(params.tag ?? '').toLowerCase()
         liveSearch.value = q
         activeTags.value = [t]
         activeCategory.value = t
         break
       }
       case 'wallpaper-name': {
-        const name = decodeURIComponent(params.name ?? '')
+        const name = safeDecodeURIComponent(params.name ?? '')
         if (!lightbox.isOpen.value) {
           _findAndOpenLightbox(name)
         }

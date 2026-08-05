@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { SITE_NAME, DEFAULT_DESCRIPTION } from '~/utils/seo'
+import { safeDecodeURIComponent } from '~/utils/format'
 
 const route = useRoute()
 const config = useRuntimeConfig()
 
-const tag = decodeURIComponent(route.params.tag as string)
+const tag = safeDecodeURIComponent(route.params.tag as string)
 const siteUrl = ((config.public.siteUrl as string) || '').replace(/\/$/, '')
 const canonicalUrl = siteUrl ? `${siteUrl}/tag/${encodeURIComponent(tag)}` : undefined
 const description = `Browse and download ${tag} wallpapers. High-resolution minimalist ${tag} backgrounds for desktop and mobile. ${DEFAULT_DESCRIPTION}`
