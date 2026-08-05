@@ -44,7 +44,12 @@ function handleError() {
           {{
             error.statusCode === 404
               ? "This wallpaper doesn't exist or the URL has drifted into the void."
-              : error.message ?? 'An unexpected error occurred.'
+              // Below 500, error.message is always one of our own createError() strings —
+              // safe to show. 5xx/unclassified errors may carry a raw exception message
+              // (e.g. internal details), so those fall back to a generic line instead.
+              : error.statusCode < 500
+                ? (error.message ?? 'Something went wrong.')
+                : 'An unexpected error occurred. Please try again later.'
           }}
         </p>
 
