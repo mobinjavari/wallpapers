@@ -81,7 +81,7 @@ const displayName = computed(() => humanizeWallpaperName(props.item.name))
           <IconsLinkIcon class="w-3 h-3" />
         </button>
         <a
-          :href="`/download/${encodeURIComponent(item.name)}`"
+          :href="`/wallpaper/${encodeURIComponent(item.name)}`"
           class="btn-press w-7 h-7 rounded-lg bg-violet-600 hover:bg-violet-500 text-white flex items-center justify-center transition-all shadow-lg shadow-violet-900/50"
           title="Download"
           @click.prevent="emit('opendownload', item)"
