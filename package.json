@@ -9,18 +9,20 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
-    "format": "eslint . --fix"
+    "format": "eslint . --fix",
+    "typecheck": "nuxi typecheck"
   },
   "dependencies": {
     "nuxt": "^4.4.8",
-    "vue": "^3.5.38",
-    "vue-router": "^5.1.0"
+    "vue": "^3.5.38"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.16.0",
     "@tailwindcss/vite": "^4.3.2",
     "@types/node": "^26.0.1",
     "eslint": "^10.7.0",
-    "tailwindcss": "^4.3.2"
+    "tailwindcss": "^4.3.2",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.3.11"
   }
 }
