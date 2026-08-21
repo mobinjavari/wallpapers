@@ -1,5 +1,6 @@
 import { ref, computed } from 'vue'
 import type { WallpaperItem } from '~/types/wallpaper'
+import { LIGHTBOX_CLOSE_CLEANUP_MS } from '~/utils/constants'
 
 const isOpen = ref(false)
 const items = ref<WallpaperItem[]>([])
@@ -69,7 +70,7 @@ export function useLightbox() {
       _closeCleanupTimer = null
       imgSrc.value = ''
       items.value = []
-    }, 300)
+    }, LIGHTBOX_CLOSE_CLEANUP_MS)
   }
 
   function prev() {

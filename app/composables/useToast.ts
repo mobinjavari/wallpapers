@@ -1,5 +1,6 @@
 import { ref } from 'vue'
 import type { ToastItem } from '~/types/wallpaper'
+import { TOAST_DISPLAY_DURATION_MS, TOAST_EXIT_ANIMATION_MS } from '~/utils/constants'
 
 const toasts = ref<ToastItem[]>([])
 
@@ -13,8 +14,8 @@ export function useToast() {
       if (t) t.leaving = true
       setTimeout(() => {
         toasts.value = toasts.value.filter(t => t.id !== id)
-      }, 350)
-    }, 2800)
+      }, TOAST_EXIT_ANIMATION_MS)
+    }, TOAST_DISPLAY_DURATION_MS)
   }
 
   return { toasts, show }

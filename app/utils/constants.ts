@@ -1,0 +1,5 @@
+export const ITEMS_PER_PAGE = 20
+export const SEARCH_DEBOUNCE_MS = 400
+export const TOAST_DISPLAY_DURATION_MS = 2800
+export const TOAST_EXIT_ANIMATION_MS = 350
+export const LIGHTBOX_CLOSE_CLEANUP_MS = 300

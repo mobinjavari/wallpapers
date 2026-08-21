@@ -3,14 +3,8 @@ const gallery = useGallery()
 </script>
 
 <template>
-  <!--
-    Wrapper is always rendered (unlike before) so the header's height is stable from first
-    paint: previously this whole block was `v-if`-gated on `!isLoading`, which meant it had
-    zero footprint while data was loading and then popped in fully-sized once fetched —
-    pushing everything below it down and registering as the page's dominant CLS culprit.
-    Only the *inner* row content now switches between skeleton / real pills / empty spacer,
-    all three sized identically (h-5), so the row's own height never changes.
-  -->
+  <!-- Wrapper always renders at a fixed height (h-5 inner rows) so the header
+       doesn't shift as loading/error/loaded content swaps inside it. -->
   <div class="border-t border-stroke-faint">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex items-center gap-1.5 py-2 overflow-x-auto no-scrollbar">

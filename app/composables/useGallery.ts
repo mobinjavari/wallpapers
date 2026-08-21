@@ -1,8 +1,7 @@
 import { ref, computed } from 'vue'
 import type { WallpaperItem, Category } from '~/types/wallpaper'
 import { safeDecodeURIComponent } from '~/utils/format'
-
-const ITEMS_PER_PAGE = 20
+import { ITEMS_PER_PAGE, SEARCH_DEBOUNCE_MS } from '~/utils/constants'
 
 // Module-level singleton state — SSR-safe because server always renders
 // the loading skeleton (isLoading=true, allItems=[]) and never calls init().
@@ -173,7 +172,7 @@ export function useGallery() {
       else {
         await navigateTo(q ? `/?q=${encodeURIComponent(q)}` : '/', { replace: true })
       }
-    }, 400)
+    }, SEARCH_DEBOUNCE_MS)
   }
 
   async function setCategory(name: string) {

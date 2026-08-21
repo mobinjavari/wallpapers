@@ -11,18 +11,12 @@ const CSP_DIRECTIVES = [
   'default-src \'self\'',
   'base-uri \'self\'',
   'object-src \'none\'',
-  // 'unsafe-hashes' + hash covers the two inline handlers below (theme script + font-swap onload);
-  // both are static, build-time strings — no 'unsafe-inline' needed. Nuxt's own hydration
-  // bootstrap (`window.__NUXT__.config = ...`) is also an inline <script>, but it embeds a
-  // random `buildId` that's regenerated on every build, so its hash never stays valid across
-  // deploys — that script can't be covered by a static hash, only by a per-request CSP nonce
-  // (not implemented yet), which is why enforcement below is Report-Only rather than blocking.
+  // Hashes cover our two static inline scripts (theme + font-swap). Nuxt's hydration bootstrap
+  // script embeds a per-build random buildId, so it can't be pinned to a static hash — hence
+  // Report-Only below, until a per-request CSP nonce replaces this.
   'script-src \'self\' \'unsafe-hashes\' \'sha256-id7f2Eqrgp6zVTgAVWHCbx0FQro3zsJq68fSwajWQXU=\' \'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc=\'',
-  // 'unsafe-inline' here (unlike script-src) is a deliberate, standard tradeoff: Vue's runtime
-  // sets inline style attributes directly via JS (e.g. v-show toggling `display:none`) with
-  // values that vary and can't be pinned to a fixed hash. Inline-style injection is a much
-  // lower-severity vector than inline-script injection, so relaxing only this directive keeps
-  // the policy's real teeth (strict script-src) while not fighting Vue's own internals.
+  // 'unsafe-inline' only here (not script-src): Vue sets inline style attrs (e.g. v-show) with
+  // values that can't be hashed; inline-style injection is far lower severity than inline-script.
   'style-src \'self\' \'unsafe-inline\' https://fonts.googleapis.com',
   'font-src \'self\' https://fonts.gstatic.com',
   // images.weserv.nl serves thumbnails, raw.githubusercontent.com is the source wallpaper + direct-download fetch, avatars.githubusercontent.com is author avatars
@@ -84,10 +78,8 @@ export default defineNuxtConfig({
       ? {
           '/**': {
             headers: {
-              // Report-Only, not enforcing: Nuxt's inline hydration script can't be pinned to a
-              // static hash (see script-src comment above), so enforcing today would block the
-              // app's own hydration on every fresh deploy. Logs violations to the console without
-              // breaking the site until that script is covered by a CSP nonce instead.
+              // Report-Only: enforcing today would block Nuxt's own hydration script (see
+              // script-src comment above) on every fresh deploy.
               'Content-Security-Policy-Report-Only': CSP_DIRECTIVES,
               'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
               'X-Frame-Options': 'SAMEORIGIN',
