@@ -51,8 +51,27 @@ useSeoMeta({
   twitterImage: ogImage,
 })
 
+const imageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ImageObject',
+  'name': displayName.value,
+  'description': description,
+  'contentUrl': w.rawUrl,
+  'thumbnailUrl': ogImage,
+  'url': `${siteUrl}/wallpaper/${encodeURIComponent(w.name)}`,
+  'encodingFormat': `image/${w.ext === 'jpg' ? 'jpeg' : w.ext}`,
+  'keywords': w.hashtags.join(', ') || undefined,
+  'uploadDate': w.createdAt ?? undefined,
+  'dateModified': w.lastModified ?? undefined,
+  'creator': w.author
+    ? { '@type': 'Person', 'name': w.author.name, 'url': w.author.profileUrl ?? undefined }
+    : undefined,
+}
+
 useHead({
   link: [{ rel: 'canonical', href: `${siteUrl}/wallpaper/${encodeURIComponent(w.name)}` }],
+  // type="application/ld+json" scripts aren't executable script, so CSP's script-src never gates them.
+  script: [{ type: 'application/ld+json', innerHTML: JSON.stringify(imageSchema) }],
 })
 </script>
 
