@@ -1,6 +1,6 @@
-# A Collection of the Best Wallpapers
+# Wallpapers Gallery
 
-An organized anthology of beautiful, high-quality backgrounds for your desktop — browsable through a companion web gallery built with **Nuxt 4** and **Tailwind CSS**.
+A curated collection of high-quality desktop wallpapers, sorted into clear categories and browsable through a companion web gallery — so finding a background worth keeping doesn't mean scrolling through hundreds of mismatched images.
 
 ## Gallery Preview
 
